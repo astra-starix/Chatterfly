@@ -15,7 +15,7 @@ mongoose
   });
 const app = express();
 app.use(express.json());
-app.user(cookieParser);
+app.use(cookieParser);
 
 const PORT = process.env.PORT || 3000;
 
