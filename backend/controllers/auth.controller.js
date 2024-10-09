@@ -62,5 +62,12 @@ export const login = async (req, res, next) => {
   }
 };
 export const logout = (req, res, next) => {
-  
+  try {
+    res.clearCookie("access_token");
+    res.status(200).json({
+      messgae: "Logged out Successfully",
+    });
+  } catch (error) {
+    next(error);
+  }
 };
