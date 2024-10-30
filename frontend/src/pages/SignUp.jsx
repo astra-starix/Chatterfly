@@ -11,14 +11,14 @@ const SignUp = () => {
     confirmPassword: "",
     gender: "",
   });
-  const {loading, signup} = useSignup()
+  const { loading, signup } = useSignup();
   const handleCheckBoxChange = (gender) => {
-    setFormData(...formData, gender)
-  }
-  const handleSubmit = async(e) => {
-    e.preventDefault()
-    await signup(formData)
-  }
+    setFormData(...formData, gender);
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await signup(formData);
+  };
   return (
     <div className="flex flex-col items-center justify-center min-w-96 mx-auto">
       <div className="w-full p-6 rounded-lg shadow-md bg-gray-200">
@@ -94,8 +94,15 @@ const SignUp = () => {
             Already have an account?
           </Link>
           <div>
-            <button className="btn btn-block btn-sm mt-2 bg-blue-700 font-bold text-white">
-              Sign Up
+            <button
+              className="btn btn-block btn-sm mt-2 bg-blue-700 font-bold text-white "
+              disabled={loading}
+            >
+              {loading ? (
+                <span className="loading loading-spinner"></span>
+              ) : (
+                "Sign Up"
+              )}
             </button>
           </div>
         </form>
